@@ -2,7 +2,9 @@ FROM ubuntu:latest
 LABEL authors="Elen Khachatryan"
 LABEL JAVA_VERSION=20
 
-RUN apt install -y openjdk-19-jre-headless && apt clean
+RUN apt update && \
+    apt install -y openjdk-19-jre-headless && \
+    apt clean
 
 WORKDIR /app/
 COPY target/*.jar /app/application.jar
